@@ -18,7 +18,7 @@
 # - 🚩 - Checkpoint; marks a good spot for you to commit your code to git
 # - 🕵️ - Tester; Don't modify code blocks starting with this emoji
 
-# In[3]:
+# In[4]:
 
 
 # 🦉 Usually, the first cell in a notebook, is where'd import all modules and third-party modules.
@@ -34,7 +34,7 @@ import numpy as np
 # ### Exercise - Demo
 # Write a python function that takes 2 numbers `num1` and `num2` and returns the addition.
 
-# In[4]:
+# In[5]:
 
 
 # 👨🏻‍💻 Fix the code below so it returns the correct output.
@@ -42,7 +42,7 @@ def simple_add(num1, num2):
     return num1 + num2
 
 
-# In[5]:
+# In[6]:
 
 
 # 🕵️ This code block checks your answer.
@@ -56,7 +56,7 @@ print("✅ worked correctly")
 # ### Exercise
 # Write a python function that takes a number `num` as a function argument and returns `even` or `odd`.
 
-# In[6]:
+# In[7]:
 
 
 # 👨🏻‍💻 Fix the code below so it returns the correct output.
@@ -66,7 +66,7 @@ def is_even_or_odd(num):
     return "odd"
 
 
-# In[7]:
+# In[8]:
 
 
 # 🕵️ This code block checks your answer. 
@@ -95,7 +95,7 @@ else:
 # - If a year is divisible by 4 but not by 100, then it is a leap year. If a year is divisible by both 4 and 100, go to the next step.
 # - If a year is divisible by 100 but not by 400, then it is a common year. If a year is divisible by both, then it is a leap year.
 
-# In[8]:
+# In[9]:
 
 
 # 👨🏻‍💻 Fix the code below so it returns the correct output.
@@ -108,7 +108,7 @@ def is_leap_year(year):
   
 
 
-# In[9]:
+# In[10]:
 
 
 # 🕵️ This code block checks your answer. 
@@ -131,7 +131,7 @@ else:
 # write a python function to convert the temperature from Celsius to Fahrenheit
 # $$ F^{\circ}=C^{\circ}\times\frac{9}{5}+32 $$
 
-# In[10]:
+# In[11]:
 
 
 # 👨🏻‍💻 Fix the code below so it returns the correct output.
@@ -139,7 +139,7 @@ def convert_celsius_to_fahrenheit(celsius):
   return celsius * 9 / 5 + 32
 
 
-# In[11]:
+# In[12]:
 
 
 # 🕵️ This code block checks your answer.
@@ -164,7 +164,7 @@ else:
 # - **🦉: check out the [following on the course website](//it4063c.github.io/course-notes/refreshers/python#returning-multiple-values-in-the-same-function) for an example**
 # - **🦉: You'll need to return `area` and `circumference` in that order**
 
-# In[12]:
+# In[13]:
 
 
 # 👨🏻‍💻 Fix the code below so it returns the correct output.
@@ -174,7 +174,7 @@ def get_area_and_circumference_of_circle(radius):
   return area, circumference
 
 
-# In[13]:
+# In[14]:
 
 
 # 🕵️ This code block checks your answer.
@@ -215,7 +215,7 @@ else:
 # 
 # 🦉 For a reminder on how to loop over a range of numbers. Checkout the [course website's refresher on python](//it4063c.github.io/course-notes/refreshers/python#for-loops)
 
-# In[14]:
+# In[15]:
 
 
 # 👨🏻‍💻 Fix the code below so it returns the correct output.
@@ -233,7 +233,7 @@ def fizz_buzz(n):
     return result
 
 
-# In[15]:
+# In[16]:
 
 
 # 🕵️ This code block checks your answer.
@@ -285,7 +285,7 @@ else:
 # 
 # 📜 [Here's a link to the `numpy.arange` function](https://numpy.org/doc/stable/reference/generated/numpy.arange.html?highlight=arange#numpy.arange)
 
-# In[16]:
+# In[17]:
 
 
 np.array([3,6,9,12])
@@ -303,7 +303,7 @@ np.array([3,6,9,12])
 # - 📜 numpy.fill function
 # - 📜 numpy.full_like function
 
-# In[17]:
+# In[18]:
 
 
 input_array = np.array([1,2,3,4,5])
@@ -314,7 +314,7 @@ print(result.shape)
 print(result)
 
 
-# In[18]:
+# In[19]:
 
 
 # 🕵️ This code block checks your answer.
@@ -352,10 +352,12 @@ else:
 # - 📜 [`numpy.char.add` function](https://numpy.org/doc/stable/reference/generated/numpy.char.add.html)
 # 
 
-# In[19]:
+# In[26]:
 
 
 def get_full_names(first_names, last_names):
+  if len(first_names) != len(last_names):
+    raise ValueError
   space = np.full_like(first_names, " ", dtype=str)
   combination = np.char.add(first_names, space)
   return np.char.add(combination, last_names)
@@ -368,7 +370,7 @@ print(full_names)
 
 # > 🚩 : Make a git commit here
 
-# In[20]:
+# In[21]:
 
 
 # 🕵️ This code block checks your answer.
@@ -406,7 +408,7 @@ else:
 # 
 # You can apply the changes to the previous cell, all tests should still pass normally
 
-# In[21]:
+# In[27]:
 
 
 # 🕵️ This code block checks your answer.
@@ -432,7 +434,7 @@ else:
 # Remember to update the self reflection and self evaluations on the `README` file.
 # 
 
-# In[22]:
+# In[28]:
 
 
 # 🦉: The following command converts this Jupyter notebook to a Python script.
