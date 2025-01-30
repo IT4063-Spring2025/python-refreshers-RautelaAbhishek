@@ -18,7 +18,7 @@
 # - 🚩 - Checkpoint; marks a good spot for you to commit your code to git
 # - 🕵️ - Tester; Don't modify code blocks starting with this emoji
 
-# In[ ]:
+# In[4]:
 
 
 # 🦉 Usually, the first cell in a notebook, is where'd import all modules and third-party modules.
@@ -26,6 +26,7 @@
 
 # 👨🏻‍💻 Use this Code block to import the modules you will need.
 import math
+import numpy as np
 
 
 # ## Part 1: Python Basics
@@ -33,15 +34,15 @@ import math
 # ### Exercise - Demo
 # Write a python function that takes 2 numbers `num1` and `num2` and returns the addition.
 
-# In[ ]:
+# In[5]:
 
 
 # 👨🏻‍💻 Fix the code below so it returns the correct output.
 def simple_add(num1, num2):
-    return 0
+    return num1 + num2
 
 
-# In[ ]:
+# In[6]:
 
 
 # 🕵️ This code block checks your answer.
@@ -55,15 +56,17 @@ print("✅ worked correctly")
 # ### Exercise
 # Write a python function that takes a number `num` as a function argument and returns `even` or `odd`.
 
-# In[ ]:
+# In[7]:
 
 
 # 👨🏻‍💻 Fix the code below so it returns the correct output.
 def is_even_or_odd(num):
-    return "even or odd"
+    if num % 2 == 0:
+        return "even"
+    return "odd"
 
 
-# In[ ]:
+# In[8]:
 
 
 # 🕵️ This code block checks your answer. 
@@ -92,15 +95,20 @@ else:
 # - If a year is divisible by 4 but not by 100, then it is a leap year. If a year is divisible by both 4 and 100, go to the next step.
 # - If a year is divisible by 100 but not by 400, then it is a common year. If a year is divisible by both, then it is a leap year.
 
-# In[ ]:
+# In[9]:
 
 
 # 👨🏻‍💻 Fix the code below so it returns the correct output.
 def is_leap_year(year):
+  if year % 4 == 0 and year % 100 != 0:
+    return True
+  if year % 100 == 0 and year % 400 == 0:  
+    return True
   return False
+  
 
 
-# In[ ]:
+# In[10]:
 
 
 # 🕵️ This code block checks your answer. 
@@ -123,15 +131,15 @@ else:
 # write a python function to convert the temperature from Celsius to Fahrenheit
 # $$ F^{\circ}=C^{\circ}\times\frac{9}{5}+32 $$
 
-# In[ ]:
+# In[11]:
 
 
 # 👨🏻‍💻 Fix the code below so it returns the correct output.
 def convert_celsius_to_fahrenheit(celsius):
-  return 0
+  return celsius * 9 / 5 + 32
 
 
-# In[ ]:
+# In[12]:
 
 
 # 🕵️ This code block checks your answer.
@@ -156,15 +164,17 @@ else:
 # - **🦉: check out the [following on the course website](//it4063c.github.io/course-notes/refreshers/python#returning-multiple-values-in-the-same-function) for an example**
 # - **🦉: You'll need to return `area` and `circumference` in that order**
 
-# In[ ]:
+# In[13]:
 
 
 # 👨🏻‍💻 Fix the code below so it returns the correct output.
 def get_area_and_circumference_of_circle(radius):
-  return 0, 0
+  area = math.pi * radius**2
+  circumference = 2 * math.pi * radius
+  return area, circumference
 
 
-# In[ ]:
+# In[14]:
 
 
 # 🕵️ This code block checks your answer.
@@ -191,6 +201,8 @@ try:
 
 except AssertionError as e:
   print(e)
+else:
+  print("✅ worked correctly")
 
 
 # > 🚩 : Make a git commit here
@@ -203,17 +215,25 @@ except AssertionError as e:
 # 
 # 🦉 For a reminder on how to loop over a range of numbers. Checkout the [course website's refresher on python](//it4063c.github.io/course-notes/refreshers/python#for-loops)
 
-# In[ ]:
+# In[15]:
 
 
 # 👨🏻‍💻 Fix the code below so it returns the correct output.
 def fizz_buzz(n):
     result = []
-    
+    for i in range(1,n):
+        if i % 3 == 0 and i % 5 == 0:
+            result.append("FizzBuzz")
+        elif i % 3 == 0:
+            result.append("Fizz")
+        elif i % 5 == 0:
+            result.append("Buzz")
+        else:
+            result.append(i)
     return result
 
 
-# In[ ]:
+# In[16]:
 
 
 # 🕵️ This code block checks your answer.
@@ -265,10 +285,10 @@ else:
 # 
 # 📜 [Here's a link to the `numpy.arange` function](https://numpy.org/doc/stable/reference/generated/numpy.arange.html?highlight=arange#numpy.arange)
 
-# In[ ]:
+# In[17]:
 
 
-np.
+np.array([3,6,9,12])
 
 
 # > 🚩 : Make a git commit here
@@ -283,18 +303,18 @@ np.
 # - 📜 numpy.fill function
 # - 📜 numpy.full_like function
 
-# In[ ]:
+# In[18]:
 
 
 input_array = np.array([1,2,3,4,5])
-result = 
+result = np.full(input_array.shape, 'IT4063C', dtype=object)
 
 print(input_array.shape)
 print(result.shape)
 print(result)
 
 
-# In[ ]:
+# In[19]:
 
 
 # 🕵️ This code block checks your answer.
@@ -332,11 +352,15 @@ else:
 # - 📜 [`numpy.char.add` function](https://numpy.org/doc/stable/reference/generated/numpy.char.add.html)
 # 
 
-# In[ ]:
+# In[26]:
 
 
 def get_full_names(first_names, last_names):
-  return
+  if len(first_names) != len(last_names):
+    raise ValueError
+  space = np.full_like(first_names, " ", dtype=str)
+  combination = np.char.add(first_names, space)
+  return np.char.add(combination, last_names)
 
 sample_first_names = np.array(["Bob", "Jane", "Mallory"])
 sample_last_names = np.array(["Smith", "Jones", "Williams"])
@@ -346,7 +370,7 @@ print(full_names)
 
 # > 🚩 : Make a git commit here
 
-# In[ ]:
+# In[21]:
 
 
 # 🕵️ This code block checks your answer.
@@ -384,7 +408,7 @@ else:
 # 
 # You can apply the changes to the previous cell, all tests should still pass normally
 
-# In[ ]:
+# In[27]:
 
 
 # 🕵️ This code block checks your answer.
@@ -410,7 +434,7 @@ else:
 # Remember to update the self reflection and self evaluations on the `README` file.
 # 
 
-# In[ ]:
+# In[28]:
 
 
 # 🦉: The following command converts this Jupyter notebook to a Python script.
